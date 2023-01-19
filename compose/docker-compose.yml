@@ -1,0 +1,44 @@
+version: "3.2"
+services:
+  nginx:
+    restart: always
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - "./conf/default.conf:/etc/nginx/conf.d/default.conf"
+    ports:
+      - "80:80"
+    command: ['nginx-debug', '-g', 'daemon off;']
+    depends_on:
+      [vproapp]
+
+  vproapp:
+    image: khan962022/vproapp1:V1
+    ports: 
+      - "8080:8080"
+  
+  mc01:
+    image: memcached:latest
+    ports:
+      - "11211:11211"
+
+  rmqc01:
+    image: rabbitmq:latest
+    ports:
+      - "5672:5672"
+    environment:
+      - RABBITMQ_DEFAULT_USER="guest"
+      - RABBITMQ_DEFAULT_PASS="guest"
+
+  vprodata:
+    image: khan962022/vprodata:V1
+    ports:
+      - "3306:3306"
+    volumes:
+      - vprodata:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD="admin123"
+      - MYSQL_USER="admin"
+      - MYSQL_PASSWORD="admin123"
+volumes:
+  vprodata: {}
