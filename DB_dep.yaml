@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        name: vprodb
+        app: vprodb
     spec:
       containers:
         - name: vprodb
@@ -26,16 +26,15 @@ spec:
                 secretKeyRef:
                   name: secrettext
                   key: MYSQL_ROOT_PASSWORD
-          args:
-            - "--ignore-db-dir=lost+found"
+                  # args:
+                  #- "--ignore-db-dir=lost+found"
           volumeMounts:
             - name: vpro-db-volume
               mountPath: /var/lib/mysql
-
       nodeSelector:
         zone: us-east-2a
       volumes:
         - name: vpro-db-volume
-          awsElasticBlockStorage:
-          volumeID: vol-0ad746fbe2e1a07bd
-          fsType: ext4
+          awsElasticBlockStore:
+            volumeID: "vol-0ad746fbe2e1a07bd"
+            fsType: ext4

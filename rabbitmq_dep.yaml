@@ -27,8 +27,8 @@ spec:
                   name: secrettext
                   key: RABBITMQ_DEFAULT_USER
 
-            - name: RABBITMQ_DEFAULT_USER
+            - name: RABBITMQ_DEFAULT_PASS
               valueFrom:
                 secretKeyRef:
                   name: secrettext
-                  key: RABBITMQ_DEFAULT_PASS
+                  key: RABBITMQ_DEFAULT_USER

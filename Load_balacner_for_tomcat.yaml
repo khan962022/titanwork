@@ -9,4 +9,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: vproapp-port
-  type: LoadBalacner
+  type: LoadBalancer
