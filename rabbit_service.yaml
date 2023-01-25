@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: vpromq01
 spec:
-  slector:
+  selector:
     app: rabitvpro
   ports:
     - protocol: TCP

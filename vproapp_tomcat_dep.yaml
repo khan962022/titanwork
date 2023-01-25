@@ -6,7 +6,7 @@ metadata:
     app: vproapp
 spec:
   replicas: 1
-  slector:
+  selector:
     matchLabels:
       app: vproapp
   template:
@@ -15,11 +15,11 @@ spec:
         app: vproapp
     spec:
       containers:
-        name: vproapp
-        image: vprofile/vprofileapp:V1
-        ports:
-          - name: vproapp-port
-            containerPort: 8080
+        - name: vproapp
+          image: vprofile/vprofileapp:V1
+          ports:
+            - name: vproapp-port
+              containerPort: 8080
       initContainer:
         - name: init-mydb
           image: busybox:1.28

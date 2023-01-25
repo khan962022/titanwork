@@ -6,7 +6,7 @@ metadata:
     app: rabitvpro
 spec:
   replicas: 1
-  slector:
+  selector:
     matchLabels:
       app: rabitvpro
   template:
@@ -15,20 +15,20 @@ spec:
         app: rabitvpro
     spec:
       containers:
-        name: rabitvpro
-        image: rabbitmq
-        ports:
-          - name: rabitvpro-port
-            containerPort: 15672
-        env:
-          name: RABBITMQ_DEFAULT_USER
-          valueFrom:
-            secretKeyRef:
-              name: secrettext
-              key: RABBITMQ_DEFAULT_USER
+        - name: rabitvpro
+          image: rabbitmq
+          ports:
+            - name: rabitvpro-port
+              containerPort: 15672
+          env:
+            name: RABBITMQ_DEFAULT_USER
+            valueFrom:
+              secretKeyRef:
+                name: secrettext
+                key: RABBITMQ_DEFAULT_USER
 
-          name: RABBITMQ_DEFAULT_USER
-          valueFrom:
-            secretKeyRef:
-              name: secrettext
-              key: RABBITMQ_DEFAULT_PASS
+            name: RABBITMQ_DEFAULT_USER
+            valueFrom:
+              secretKeyRef:
+                name: secrettext
+                key: RABBITMQ_DEFAULT_PASS

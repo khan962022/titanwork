@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: vprodb
 spec:
-  slector:
+  selector:
     app: vprodb
   ports:
     - protocol: TCP

@@ -6,7 +6,7 @@ metadata:
     app: vpromc
 spec:
   replicas: 1
-  slector:
+  selector:
     matchLabels:
       app: vprodb
   template:
@@ -15,10 +15,10 @@ spec:
         app: vpromc
     spec:
       containers:
-        name: vpromc
-        image: memcached
-        ports:
-          - name: vpromc-port
-            containerPort: 11211
+        - name: vpromc
+          image: memcached
+          ports:
+            - name: vpromc-port
+              containerPort: 11211
 
 
