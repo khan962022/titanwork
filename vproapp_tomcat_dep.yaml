@@ -5,7 +5,7 @@ metadata:
   labels:
     app: vproapp
 spec:
-  replicaSet: 1
+  replicas: 1
   slector:
     matchLabels:
       app: vproapp
