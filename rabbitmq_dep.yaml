@@ -5,7 +5,7 @@ metadata:
   labels:
     app: rabitvpro
 spec:
-  replicatSet: 1
+  replicas: 1
   slector:
     matchLabels:
       app: rabitvpro
